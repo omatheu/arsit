@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <nav className="flex justify-between items-center py-4 px-6 bg-white shadow-sm">
       <a href="/">
-        <img src="src/assets/logo-completo.png" alt="Logo Arsit" className="h-8 w-auto" />
+        <img src="/logo-completo.png" alt="Logo Arsit" className="h-8 w-auto" />
       </a>
 
       <div className="hidden md:flex space-x-8 text-sm text-black">

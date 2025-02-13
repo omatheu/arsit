@@ -4,21 +4,21 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const slides = [
   {
     id: 1,
-    imageUrl: 'src/assets/cloud-computing.png',
+    imageUrl: '/cloud-computing.png',
     title: 'Cases de Sucesso',
     description: 'Nossa empresa tem experiência em projetos, implentações, suporte, manutenção e gerenciamento nos três maiores datacenters do país, atuando com suporte e manutenção de diversas empresas.',
     link: '/cases-de-sucesso'
   },
   {
     id: 2,
-    imageUrl: '/src/assets/ai.png',
+    imageUrl: '/ai.png',
     title: 'IA - Inteligencia Artificial',
     description: 'Saiba como pode ajudar sua empresa.',
     link: '/inteligencia-artificial'
   },
   {
     id: 3,
-    imageUrl: '/src/assets/brasil-investimentos.png',
+    imageUrl: '/brasil-investimentos.png',
     title: 'Cases de sucesso Governo',
     description: 'Em 2018 a ARSIT Tecnologia começou a atender em todo o Brasil clientes governamentais, acompanhe aqui alguns casos de sucesso.',
     link: '/governo'
