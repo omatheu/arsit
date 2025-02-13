@@ -6,7 +6,10 @@ export default function Navbar() {
 
   return (
     <nav className="flex justify-between items-center py-4 px-6 bg-white shadow-sm">
-      <img src="src/assets/logo-completo.png" alt="Logo Arsit" className="h-8 w-auto" />
+      <a href="/">
+        <img src="src/assets/logo-completo.png" alt="Logo Arsit" className="h-8 w-auto" />
+      </a>
+
       <div className="hidden md:flex space-x-8 text-sm text-black">
         <a href="#" className="hover:text-sky-600">A EMPRESA</a>
         <div className="relative">
