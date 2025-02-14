@@ -1,6 +1,6 @@
 export default function ContactForm() {
     return (
-      <form className="w-full mx-auto p-6 bg-white rounded-lg shadow-md">
+      <form id="contato" className="w-full mx-auto p-6 bg-white rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-6 text-gray-800">Conte para nós como podemos te ajudar</h1>
   
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

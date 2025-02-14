@@ -3,6 +3,7 @@ import StatisticsSlider from "../components/StatisticsSlider";
 import ContactForm from "../components/ContactForm";
 import WhatsAppBtn from "../components/WhatsappBtn";
 import Navbar from "../components/Navbar";
+import ProfissionalFields from "../components/ProfissionalFields";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <div className="pt-20 flex flex-col justify-center items-center space-y-8">
         <SlideShow />
         <StatisticsSlider />
+        <ProfissionalFields/>
         <ContactForm />
       </div>
 
