@@ -20,7 +20,7 @@ export default function StatisticsSlider() {
             Somos o catalisador da <span className="text-blue-600">transformação</span>, conectando <span className="text-blue-600">tecnologia</span> para um mundo melhor.
           </h2>
           <p className="text-gray-600 text-lg mb-8">
-            Se tem um desafio para fazer a jornada pra nuvem ou transformar o seu negácio com a tecnologia, nós temos a experiência para te apoiar!
+            Se tem um desafio para fazer a jornada pra nuvem ou transformar o seu negócio com a tecnologia, nós temos a experiência para te apoiar!
           </p>
         </div>
 
