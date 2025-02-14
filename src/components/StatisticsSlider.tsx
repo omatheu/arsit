@@ -1,7 +1,7 @@
 const statsData = [
   { value: '+ 1.500', description: 'clientes' },
   { value: '86', description: 'NPS 2024' },
-  { value: '7 das 10', description: 'maiores empresas do Brasil são clientes da TIVIT' },
+  { value: '7 das 10', description: 'maiores empresas do Brasil são clientes da ARSIT' },
   { value: '10', description: 'países em atuação' },
   { value: '+ 25', description: 'unidades na América Latina' },
   { value: '+ 5.800', description: 'colaboradores no Brasil e demais países na América Latina' },
