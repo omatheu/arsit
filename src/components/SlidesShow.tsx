@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const slides = [
   {
@@ -43,22 +43,31 @@ export default function SlideShow() {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
+  // Inicia o temporizador para troca automática dos slides
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000); // Troca a cada 5 segundos
+
+    return () => clearInterval(interval); // Limpa o intervalo ao desmontar
+  }, [currentSlide]);
+
   return (
     <div className="relative w-full mx-auto bg-white shadow-lg overflow-hidden">
-      <div className="relative h-80 md:h-[28rem] bg-gray-100 flex justify-center items-center">
+      <div className="relative h-80 md:h-[28rem] bg-gray-100 flex justify-center items-center transition-transform duration-700 ease-in-out">
         <img
           src={slides[currentSlide].imageUrl}
           alt={slides[currentSlide].title}
           className="w-full h-full object-cover"
         />
-        
-        {/* Overlay retangular */}
         <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-6">
           <div className="max-w-4xl mx-auto text-left">
-            <h3 className="text-2xl font-bold text-white mb-3">{slides[currentSlide].title}</h3>
-            <p className="text-base text-gray-200 mb-4">{slides[currentSlide].description}</p>
+            <h3 className="text-2xl font-bold text-white mb-3">
+              {slides[currentSlide].title}
+            </h3>
+            <p className="text-base text-gray-200 mb-4">
+              {slides[currentSlide].description}
+            </p>
             <a
-              href={slides[currentSlide].link} // Adicione a propriedade 'link' nos seus slides
+              href={slides[currentSlide].link}
               className="inline-block bg-sky-600 hover:bg-sky-700 text-white px-6 py-2 rounded-md transition-colors duration-200"
             >
               Saiba Mais →
@@ -67,7 +76,6 @@ export default function SlideShow() {
         </div>
       </div>
 
-      {/* Botões quadrados */}
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-sky-600 text-white p-3 hover:bg-sky-700 shadow-md"
@@ -82,13 +90,14 @@ export default function SlideShow() {
         <ChevronRight size={28} />
       </button>
 
-      {/* Indicadores quadrados */}
       <div className="absolute bottom-4 right-4 flex space-x-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`h-3 w-8 ${currentSlide === index ? 'bg-sky-600' : 'bg-gray-300'} transition-colors`}
+            className={`h-3 w-8 ${
+              currentSlide === index ? 'bg-sky-600' : 'bg-gray-300'
+            } transition-colors`}
           />
         ))}
       </div>
