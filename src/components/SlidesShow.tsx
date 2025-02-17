@@ -4,25 +4,32 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const slides = [
   {
     id: 1,
-    imageUrl: '/cloud-computing.png',
-    title: 'Cases de Sucesso',
-    description: 'Nossa empresa tem experiência em projetos, implentações, suporte, manutenção e gerenciamento nos três maiores datacenters do país, atuando com suporte e manutenção de diversas empresas.',
+    imageUrl: 'https://arsit.com.br/images/alp2.jpg',
+    title: 'Cases de sucesso',
+    description: 'Em 2015 a InoVo Services com sede em Dallas Texas Estados Unidos com atuação em mais de 50 países fecha acordo com a ARSIT TECNOLOGIA para atender seus projetos e clientes no Brasil.  ',
     link: '/cases-de-sucesso'
   },
   {
     id: 2,
-    imageUrl: '/ai.png',
+    imageUrl: 'https://arsit.com.br/media/favslider/demo/slide04_ot.jpg',
     title: 'IA - Inteligencia Artificial',
     description: 'Saiba como pode ajudar sua empresa.',
     link: '/inteligencia-artificial'
   },
   {
     id: 3,
-    imageUrl: '/brasil-investimentos.png',
+    imageUrl: 'https://arsit.com.br/images/brasil_tecnologia2.jpg',
     title: 'Cases de sucesso Governo',
     description: 'Em 2018 a ARSIT Tecnologia começou a atender em todo o Brasil clientes governamentais, acompanhe aqui alguns casos de sucesso.',
     link: '/governo'
   },
+  {
+    id: 4,
+    imageUrl: 'https://arsit.com.br/images/datacenter.jpg',
+    title: 'Cases de sucesso',
+    description: 'Nossa empresa tem experiência em projetos, implentações, suporte, manutenção e gerenciamento nos três maiores datacenters do país, atuando com suporte e manutenção de diversas empresas.',
+    link: '/cloud'
+  }
 ];
 
 export default function SlideShow() {
