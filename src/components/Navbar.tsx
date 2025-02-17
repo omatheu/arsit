@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Search } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +10,7 @@ export default function Navbar() {
       </a>
 
       <div className="hidden md:flex space-x-8 text-sm text-black">
-        <a href="#" className="hover:text-sky-600">A EMPRESA</a>
+        <a href="/" className="hover:text-sky-600">A EMPRESA</a>
         <div className="relative">
           <button 
             onClick={() => setIsOpen(!isOpen)} 
@@ -45,17 +44,14 @@ export default function Navbar() {
             </div>
           )}
         </div>
-        <a href="#" className="hover:text-sky-600">PROJETOS</a>
-        <a href="#" className="hover:text-sky-600">CARREIRAS</a>
-        <a href="#contato" className="hover:text-sky-600">CONTATO</a>
+        <a href="/projects" className="hover:text-sky-600">PROJETOS</a>
+        <a href="/careers" className="hover:text-sky-600">CARREIRAS</a>
+        <a href="/contact" className="hover:text-sky-600">CONTATO</a>
       </div>
 
-      <div className="flex items-center space-x-4">
+      {/* <div className="flex items-center space-x-4">
         <Search className="text-sky-600 cursor-pointer" size={20} />
-        <span className="text-sm">
-          <a href="#" className="font-bold">EN</a> / <a href="#" className="hover:underline">ES</a>
-        </span>
-      </div>
+      </div> */}
     </nav>
   );
 }
