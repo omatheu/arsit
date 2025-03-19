@@ -8,28 +8,28 @@ const ProjectsPage = () => {
             title: 'Parceria Global com a InoVo Services',
             description: 'Atendemos projetos e clientes no Brasil em parceria com a InoVo Services, uma empresa global com sede nos Estados Unidos.',
             link: '/cases-de-sucesso',
-            imageUrl: 'https://arsit.com.br/images/alp2.jpg'
+            imageUrl: 'https://arsit.com.br/old_frontend/images/alp2.jpg'
         },
         {
             id: 2,
             title: 'IA - Inteligência Artificial nos Negócios',
             description: 'Descubra como nossas soluções de IA podem otimizar e transformar os processos empresariais.',
             link: '/inteligencia-artificial',
-            imageUrl: 'https://arsit.com.br/media/favslider/demo/slide04_ot.jpg'
+            imageUrl: 'https://arsit.com.br/old_frontend/media/favslider/demo/slide04_ot.jpg'
         },
         {
             id: 3,
             title: 'Atendimento Governamental',
             description: 'Desde 2018, apoiamos clientes governamentais em todo o Brasil, oferecendo soluções completas em TI.',
             link: '/governo',
-            imageUrl: 'https://arsit.com.br/images/brasil_tecnologia2.jpg'
+            imageUrl: 'https://arsit.com.br/old_frontend/images/brasil_tecnologia2.jpg'
         },
         {
             id: 4,
             title: 'Cloud Computing e Datacenters',
             description: 'Experiência em projetos, implantações e suporte nos três maiores datacenters do país.',
             link: '/cloud',
-            imageUrl: 'https://arsit.com.br/images/datacenter.jpg'
+            imageUrl: 'https://arsit.com.br/old_frontend/images/datacenter.jpg'
         }
     ];
 

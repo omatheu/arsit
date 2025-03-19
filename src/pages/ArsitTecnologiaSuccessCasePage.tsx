@@ -33,11 +33,11 @@ const ArsitTecnologiaSuccessCasePage = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="https://www.arsit.com.br/images/atestado-uberaba.png" alt="Atestado Técnico Uberaba" className="w-full h-auto" />
+                        <img src="https://www.arsit.com.br/old_frontend/images/atestado-uberaba.png" alt="Atestado Técnico Uberaba" className="w-full h-auto" />
                         <p className="text-center text-gray-600 text-sm mt-2">Atestado Técnico - Uberaba</p>
                     </div>
                     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="https://www.arsit.com.br/images/atestado-tribunal02.png" alt="Atestado Técnico Tribunal" className="w-full h-auto" />
+                        <img src="https://www.arsit.com.br/old_frontend/images/atestado-tribunal02.png" alt="Atestado Técnico Tribunal" className="w-full h-auto" />
                         <p className="text-center text-gray-600 text-sm mt-2">Atestado Técnico - Tribunal</p>
                     </div>
                 </div>
