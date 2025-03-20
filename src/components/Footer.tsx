@@ -42,7 +42,7 @@ export default function Footer() {
             <div className="text-gray-300 space-y-2">
               <p>+55 (11) 4502-1422</p>
               <p>
-                R. Cruz das Almas, 301<br/>
+                R. Cruz das Almas, 301 - BL 5 CJ 13<br/>
                 CEP 04330-060<br/>
                 Vila Campestre - São Paulo, Brasil
               </p>
