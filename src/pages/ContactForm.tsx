@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Navbar from '../components/Navbar';
 
 const ContactPage = () => {
@@ -7,16 +8,53 @@ const ContactPage = () => {
         email: '',
         message: '',
     });
+    
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
     const handleChange = (e: any) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+        // Reset status when user starts typing again
+        if (submitStatus !== 'idle') setSubmitStatus('idle');
     };
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-        console.log('Form Data Submitted:', formData);
-        // Lógica para enviar os dados ao servidor
+        setIsSubmitting(true);
+        
+        try {
+            // Suas configurações reais do EmailJS
+            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+            const templateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+            
+            // Parâmetros ajustados para o seu template
+            const templateParams = {
+                title: `Novo contato do site - ${formData.name}`,
+                name: formData.name,
+                message: `
+📧 Email: ${formData.email}
+
+💬 Mensagem:
+${formData.message}
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+📨 Enviado pelo formulário de contato do site da Arsit
+                `.trim()
+            };
+
+            await emailjs.send(serviceId, templateId, templateParams, publicKey);
+            
+            setSubmitStatus('success');
+            setFormData({ name: '', email: '', message: '' }); // Limpar formulário
+            
+        } catch (error) {
+            console.error('Erro ao enviar email:', error);
+            setSubmitStatus('error');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -27,6 +65,20 @@ const ContactPage = () => {
                     <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
                         Entre em Contato
                     </h1>
+                    
+                    {/* Status Messages */}
+                    {submitStatus === 'success' && (
+                        <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
+                            ✅ Mensagem enviada com sucesso! Retornaremos em breve.
+                        </div>
+                    )}
+                    
+                    {submitStatus === 'error' && (
+                        <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md">
+                            ❌ Erro ao enviar mensagem. Tente novamente ou entre em contato diretamente.
+                        </div>
+                    )}
+
                     <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-lg">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -39,7 +91,8 @@ const ContactPage = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                disabled={isSubmitting}
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-100"
                             />
                         </div>
 
@@ -54,7 +107,8 @@ const ContactPage = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                disabled={isSubmitting}
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-100"
                             />
                         </div>
 
@@ -69,15 +123,17 @@ const ContactPage = () => {
                                 onChange={handleChange}
                                 rows={4}
                                 required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                disabled={isSubmitting}
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-100"
                             />
                         </div>
 
                         <button
                             type="submit"
-                            className="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            disabled={isSubmitting}
+                            className="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            Enviar
+                            {isSubmitting ? 'Enviando...' : 'Enviar'}
                         </button>
                     </form>
 
